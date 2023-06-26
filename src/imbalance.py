@@ -1,5 +1,6 @@
 # import modules
 import pandas as pd
+
 from clean import clean_data
 from imblearn.under_sampling import RandomUnderSampler, TomekLinks, NearMiss
 from imblearn.over_sampling  import RandomOverSampler, SMOTE
@@ -25,7 +26,7 @@ def balance_data(X, y, method='RUS'):
         return SMOTETomek().fit_resample(X, y), SMOTETomek()
 
 
-if __name__() == '__main__':
+if __name__ == '__main__':
     data = pd.read_csv('../../data/ai4i2020.csv', index_col='UDI')
 
     data = clean_data(data)

@@ -5,6 +5,8 @@ import pandas as pd
 def clean_data(data, drop_type=True, encode_mf=False):
     ''' clean the data '''
 
+    data = data.copy()
+
     if drop_type:
         data.drop(columns='Type', inplace=True)
 
@@ -25,7 +27,7 @@ def clean_data(data, drop_type=True, encode_mf=False):
     return data
 
 
-if __name__() == '__main__':
+if __name__ == '__main__':
     data = pd.read_csv('../../data/ai4i2020.csv', index_col='UDI')
 
     print(clean_data(data, drop_type=True, encode_mf=False))
