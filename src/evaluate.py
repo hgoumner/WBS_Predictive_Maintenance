@@ -9,7 +9,7 @@ def evaluate_model(y_test, y_predictions):
     recall = recall_score(y_test, y_predictions, average='weighted')
     precision = precision_score(y_test, y_predictions, average='weighted')
     f1s = f1_score(y_test, y_predictions, average='weighted')
-    MCC = matthews_corrcoef(y_test, y_predictions)
+    # MCC = matthews_corrcoef(y_test, y_predictions)
     roc = roc_auc_score(y_test, y_predictions)
 
-    return accuracy, recall, precision, f1s, MCC, roc
+    return accuracy, recall, precision, f1s, roc # MCC, roc

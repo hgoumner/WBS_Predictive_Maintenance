@@ -2,7 +2,7 @@
 import pandas as pd
 
 
-def clean_data(data, drop_type=True, encode_mf=False):
+def clean_data(data, drop_type=True, encode_mf=False, multi=False):
     ''' clean the data '''
 
     data = data.copy()
@@ -22,7 +22,10 @@ def clean_data(data, drop_type=True, encode_mf=False):
         data['Machine failure'][data['OSF'] == 1] = 4
         data['Machine failure'][data['RNF'] == 1] = 5
 
-    data.drop(columns=['Product ID', 'TWF', 'HDF', 'PWF', 'OSF', 'RNF'], inplace=True)
+    if multi:
+        data.drop(columns=['Product ID', 'Machine failure'], inplace=True)
+    else:
+        data.drop(columns=['Product ID', 'TWF', 'HDF', 'PWF', 'OSF', 'RNF'], inplace=True)
 
     return data
 
