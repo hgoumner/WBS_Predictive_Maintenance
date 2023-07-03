@@ -7,8 +7,12 @@ def clean_data(data, drop_type=True, encode_mf=False, multi=False):
 
     data = data.copy()
 
+    # drop column
     if drop_type:
         data.drop(columns='Type', inplace=True)
+
+    # drop duplicates
+    data.drop_duplicates(inplace=True)
 
     if encode_mf:
         # needs improvement because of multiple failure modes
