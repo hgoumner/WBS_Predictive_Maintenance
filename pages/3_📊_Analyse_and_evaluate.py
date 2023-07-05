@@ -1,6 +1,5 @@
 # Import modules
 import streamlit as st
-# import streamlit.components.v1 as components
 import joblib
 import pandas as pd
 
@@ -40,8 +39,6 @@ with col1:
         on_change=set_failure
     )
 
-# st.divider()
-
 # Process temperature
 with col2:
     temp_process = st.slider(
@@ -52,8 +49,6 @@ with col2:
         format='%.2f',
         on_change=set_failure
     )
-
-# st.divider()
 
 # Rotational speed
 with col3:
@@ -66,8 +61,6 @@ with col3:
         on_change=set_failure
     )
 
-# st.divider()
-
 # Torque
 with col4:
     torque = st.slider(
@@ -78,7 +71,6 @@ with col4:
         format='%.2f',
         on_change=set_failure
     )
-# st.divider()
 
 # Tool wear [min]
 with col5:
@@ -113,7 +105,6 @@ failure_types = [
 
 st.header('Model prediction')
 
-# st.write('**Failure:**')
 failures = set_failure()
 
 cols = st.columns(5, gap='medium')
